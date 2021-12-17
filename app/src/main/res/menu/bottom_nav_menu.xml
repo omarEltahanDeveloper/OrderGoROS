@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_placedItems"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/title_placedItems"
+        android:actionLayout="@layout/nav_placed_items"/>
+    <item
+        android:id="@+id/navigation_placedOrders"
+        android:icon="@drawable/ic_placed_orders"
+        android:title="@string/title_placedOrdersItems"
+        android:iconTint="@color/black"/>
+
+    <item
+        android:id="@+id/navigation_completedOrders"
+        android:icon="@drawable/ic_completed_orders"
+        android:title="@string/title_completedOrdersItems"
+        android:iconTint="@color/black"/>
+
+    <item
+        android:id="@+id/navigation_tables"
+        android:icon="@drawable/outline_table_chart_24"
+        android:title="@string/title_tables"
+        android:iconTint="@color/black"/>
+
+</menu>

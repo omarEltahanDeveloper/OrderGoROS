@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@color/white"
+            app:popupTheme="@style/Widget.AppCompat.Toolbar">
+
+            <ImageView
+                android:id="@+id/tv_header_title"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:contentDescription="@string/logo"
+                android:src="@drawable/app_ros_logo" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:background="@color/background"
+            tools:context=".ui.register_fragment.RegisterFragment">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/_3sdp"
+                android:text="@string/txt_voucher"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_logo" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/policy"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_5ssp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card" />
+
+            <Button
+                android:id="@+id/buttonStartVerification"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@drawable/buttonsstyle"
+                android:gravity="center_horizontal"
+                android:text="@string/btn_register"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <ImageView
+                android:id="@+id/img_logo"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:contentDescription="@string/reg_logo"
+                android:src="@drawable/phonenumber"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card"
+                android:layout_width="@dimen/_160sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_1sdp"
+                app:cardElevation="@dimen/_1sdp"
+                app:cardMaxElevation="@dimen/_1sdp"
+                app:cardPreventCornerOverlap="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <com.hbb20.CountryCodePicker
+                        android:id="@+id/ccp"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_22sdp"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        android:gravity="center_horizontal"
+                        app:ccp_areaCodeDetectedCountry="true"
+                        app:ccp_autoDetectCountry="true"
+                        app:ccp_autoFormatNumber="true"
+                        app:ccp_defaultLanguage="ENGLISH"
+                        app:ccp_defaultNameCode="GB"
+                        app:ccp_rememberLastSelection="true"
+                        app:ccp_showNameCode="false"
+                        app:ccp_textSize="@dimen/_8ssp" />
+
+                    <EditText
+                        android:id="@+id/fieldPhoneNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_22sdp"
+                        android:layout_marginStart="@dimen/_2sdp"
+                        android:layout_toEndOf="@+id/ccp"
+                        android:autofillHints="Enter Your Phone"
+                        android:background="@color/background"
+                        android:ems="10"
+                        android:gravity="start"
+                        android:hint="@string/enter_phone_number"
+                        android:inputType="phone"
+                        android:maxLength="10"
+                        android:padding="@dimen/_4sdp"
+                        android:textSize="@dimen/_11ssp" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

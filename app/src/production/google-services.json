@@ -1,0 +1,193 @@
+{
+  "project_info": {
+    "project_number": "256503914278",
+    "firebase_url": "https://ordergoapp-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "ordergoapp",
+    "storage_bucket": "ordergoapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256503914278:android:2a725776c0f2b105616be7",
+        "android_client_info": {
+          "package_name": "com.ordergo.ros"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "256503914278-qrhesftlqgmmj5mq9318unqai0vcefat.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSdZgi5vbrwe0ROGKIEcOKNy2asInRhrY"
+        },
+        {
+          "current_key": "AIzaSyB7b5GF2pe8QiKUKUr8PaRTuLJ5BLteEwY"
+        },
+        {
+          "current_key": "AIzaSyBZMRfW_XtO9gAIFyVRLleWUnSbyiQ2MfY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "256503914278-qrhesftlqgmmj5mq9318unqai0vcefat.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "256503914278-9gn672f31pi24hj5q58g4p8dg3q0buo1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ordergo.tst"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256503914278:android:e4bd89c31a513e01616be7",
+        "android_client_info": {
+          "package_name": "com.ordergo.tst"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "256503914278-bqceq345gllstpdbfnqasg175i9d0cf4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ordergo.tst",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "256503914278-i1kd2f3q91fk6tur96gi2okejhud1gbb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ordergo.tst",
+            "certificate_hash": "62db89bc4a3fd10153b00f09c14463cc164b821a"
+          }
+        },
+        {
+          "client_id": "256503914278-qrhesftlqgmmj5mq9318unqai0vcefat.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSdZgi5vbrwe0ROGKIEcOKNy2asInRhrY"
+        },
+        {
+          "current_key": "AIzaSyB7b5GF2pe8QiKUKUr8PaRTuLJ5BLteEwY"
+        },
+        {
+          "current_key": "AIzaSyBZMRfW_XtO9gAIFyVRLleWUnSbyiQ2MfY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "256503914278-qrhesftlqgmmj5mq9318unqai0vcefat.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "256503914278-9gn672f31pi24hj5q58g4p8dg3q0buo1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ordergo.tst"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256503914278:android:a6f6179ba43b9875616be7",
+        "android_client_info": {
+          "package_name": "com.ordergoapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "256503914278-0m11n74v789h1v7gemrkurjmf6m663a3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ordergoapp",
+            "certificate_hash": "4cd3f88550ac761307bb5af2e517c98b913e931c"
+          }
+        },
+        {
+          "client_id": "256503914278-jua2abeovvi02jer6nd3m0t2e69hrcfv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ordergoapp",
+            "certificate_hash": "62db89bc4a3fd10153b00f09c14463cc164b821a"
+          }
+        },
+        {
+          "client_id": "256503914278-pfede98mflsci1auihnqo9q5nllv0f8k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ordergoapp",
+            "certificate_hash": "c7db236fddb273585292d475e3c6735d42b05f6b"
+          }
+        },
+        {
+          "client_id": "256503914278-rvlifjk4qv7veaj7evr947f0gvdji39o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ordergoapp",
+            "certificate_hash": "20d84e259397614b063a86a644485f2492516bce"
+          }
+        },
+        {
+          "client_id": "256503914278-stvvd2jmoelhr1q0l9342b3su31hae7j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ordergoapp",
+            "certificate_hash": "4ef289250c85f9449acf5eb33f28a986e5dbbc4e"
+          }
+        },
+        {
+          "client_id": "256503914278-qrhesftlqgmmj5mq9318unqai0vcefat.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSdZgi5vbrwe0ROGKIEcOKNy2asInRhrY"
+        },
+        {
+          "current_key": "AIzaSyB7b5GF2pe8QiKUKUr8PaRTuLJ5BLteEwY"
+        },
+        {
+          "current_key": "AIzaSyBZMRfW_XtO9gAIFyVRLleWUnSbyiQ2MfY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "256503914278-qrhesftlqgmmj5mq9318unqai0vcefat.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "256503914278-9gn672f31pi24hj5q58g4p8dg3q0buo1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ordergo.tst"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

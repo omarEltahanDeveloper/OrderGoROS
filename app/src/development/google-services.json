@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "969580181529",
+    "project_id": "ordergotest",
+    "storage_bucket": "ordergotest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:969580181529:android:a0d530a2b1d317dcfd5288",
+        "android_client_info": {
+          "package_name": "com.ordergoapp.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "969580181529-8q1qlhp8asblhos124fum6fv8rhg50au.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ordergoapp.test",
+            "certificate_hash": "20d84e259397614b063a86a644485f2492516bce"
+          }
+        },
+        {
+          "client_id": "969580181529-vp4cklssj0rjjbnq7df2faalmc3pdq7d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVxLfMQrtBQMbVkOd_mS0q581X38ioy4Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "969580181529-vp4cklssj0rjjbnq7df2faalmc3pdq7d.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "969580181529-k5787b5lndkntpi3n9tluq9egd51bmlb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ordergo.tst"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:969580181529:android:c70dbeb90ba6b66cfd5288",
+        "android_client_info": {
+          "package_name": "com.tst"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "969580181529-1sjork7aiqooviu7eqshdmpt2f6o0v6a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tst",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "969580181529-vp4cklssj0rjjbnq7df2faalmc3pdq7d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVxLfMQrtBQMbVkOd_mS0q581X38ioy4Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "969580181529-vp4cklssj0rjjbnq7df2faalmc3pdq7d.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "969580181529-k5787b5lndkntpi3n9tluq9egd51bmlb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ordergo.tst"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

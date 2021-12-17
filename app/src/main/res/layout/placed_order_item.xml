@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view_flipper"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:flipInterval="1000">
+
+    <com.ordergoapp.components.InterceptTouchConstraintLayout
+        android:id="@+id/layout_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:background="@drawable/itemcard_background"
+        android:focusableInTouchMode="false"
+        android:touchscreenBlocksFocus="true"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/txt_qty"
+            style="@style/ItemTextSyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/seq1"
+            style="@style/ItemTextSyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="x"
+            android:textColor="@color/primary"
+            app:layout_constraintStart_toEndOf="@id/txt_qty"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_itemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:gravity="center_vertical"
+            android:text="Item Name"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/seq1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Chronometer
+            android:id="@+id/timer"
+            style="@style/TimerTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:countDown="false"
+            android:background="@drawable/bg_serving_rounded_corners"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.ordergoapp.components.CustomListView
+            android:id="@+id/listView_addOns"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:divider="@null"
+            android:focusable="false"
+            android:touchscreenBlocksFocus="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_qty" />
+
+        <TextView
+            android:id="@+id/txt_option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_serving_rounded_corners"
+            android:text="N/A"
+            android:textColor="@color/primary_text"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/listView_addOns"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:visibility="visible"/>
+
+        <TextView
+            android:id="@+id/txt_notes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@drawable/notes_rounded_corners"
+            android:text="Notes "
+            android:textSize="14sp"
+            android:textColor="@color/primary_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_option" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_notes"
+            android:layout_marginTop="@dimen/_6sdp">
+
+            <TextView
+                android:id="@+id/txt_itemServing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_serving_rounded_corners"
+                tools:text="Main Course"
+                android:textColor="@color/primary_text"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_alignParentStart="true"/>
+
+            <TextView
+                android:id="@+id/txt_order_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_serving_rounded_corners"
+                tools:text="Placing"
+                android:textColor="@color/primary_text"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:layout_editor_absoluteY="45dp"
+                android:layout_alignParentEnd="true"/>
+
+        </RelativeLayout>
+
+    </com.ordergoapp.components.InterceptTouchConstraintLayout>
+</ViewFlipper>

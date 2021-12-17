@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_placedItems">
+
+    <fragment
+        android:id="@+id/navigation_placedItems"
+        android:name="com.ordergoapp.ui.placed_items.PlacedItemsFragment"
+        android:label="@string/title_placedItems"
+        tools:layout="@layout/fragment_placed_items" />
+
+    <fragment
+        android:id="@+id/navigation_placedOrders"
+        android:name="com.ordergoapp.ui.placed_orders.PlacedOrdersFragment"
+        android:label="@string/title_placedOrdersItems"
+        tools:layout="@layout/fragment_placed_orders" />
+
+    <fragment
+        android:id="@+id/navigation_completedOrders"
+        android:name="com.ordergoapp.ui.completed_orders.CompletedOrdersFragment"
+        android:label="@string/title_completedOrdersItems"
+        tools:layout="@layout/fragment_completed_orders" />
+
+    <fragment
+        android:id="@+id/navigation_tables"
+        android:name="com.ordergoapp.ui.tables.TableFragment"
+        android:label="@string/title_tables"
+        tools:layout="@layout/fragment_table">
+        <action
+            android:id="@+id/action_navigation_tables_to_navigation_tableOrders"
+            app:destination="@id/navigation_tableOrders">
+            <argument
+                android:name="myArg"
+                android:defaultValue="1"
+                app:argType="integer" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_tableOrders"
+        android:name="com.ordergoapp.ui.tables.TableOrderFragment"
+        tools:layout="@layout/fragment_table_order" />
+
+</navigation>

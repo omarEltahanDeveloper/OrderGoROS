@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#3CAEA3</color>
+    <color name="purple_700">#173F5F</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="background">#FFF8F8F8</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="orange">#FF6501</color>
+    <color name="green_dark">#4C8077</color>
+    <color name="green_dark70">#80B3AA</color>
+    <color name="green_dark_20">#b5d3cd</color>
+    <color name="primary_light">#FFD1AD</color>
+<!--    <color name="primary">#3F51B5</color>-->
+<!--    <color name="primary_dark">#303F9F</color>-->
+<!--    <color name="primary_light">#C5CAE9</color>-->
+<!--    <color name="accent">#FF5252</color>-->
+<!--    <color name="primary_text">#212121</color>-->
+<!--    <color name="secondary_text">#757575</color>-->
+<!--    <color name="icons">#FFFFFF</color>-->
+<!--    <color name="divider">#BDBDBD</color>-->
+
+    <color name="primary">#FF781F</color>
+    <color name="primary_dark">#333333</color>
+    <color name="bgColor">#f7f7f7</color>
+    <color name="accent">#9E9E9E</color>
+    <color name="primary_text">#333333</color>
+    <color name="secondary_text">#f7f7f7</color>
+    <color name="light">#D7D7D7</color>
+    <color name="medium">#a0a0a0</color>
+
+    <color name="OrderPlacedColor">#333333</color>
+    <color name="OrderPreparingColor">#FF781F</color>
+    <color name="OrderCompletedColor">#29a19c</color>
+
+
+
+    // overlay: 'rgba(0, 0, 0, 0.6)',
+    // lightOverlay: 'rgba(255, 255, 255, 0.6)',
+
+
+</resources>
