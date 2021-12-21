@@ -13,6 +13,7 @@ import android.os.Parcelable
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.View
+import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -32,6 +33,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.functions.FirebaseFunctions
 import com.google.gson.Gson
+import com.ordergoapp.ListenToBadgeCount
 import com.ordergoapp.R
 import com.ordergoapp.async.AsyncEscPosPrinter
 import com.ordergoapp.async.AsyncUsbEscPosPrint
@@ -54,7 +56,7 @@ import java.util.*
 import kotlin.properties.Delegates
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() , ListenToBadgeCount {
 
     private val TAG = MainActivity::class.java.name
     private lateinit var binding: ActivityMainBinding
@@ -272,78 +274,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun initTabs() {
-        val placedOrders =  ordersViewModel.getPlacedOrders()
-        val completedOrders = ordersViewModel.getCompletedOrders()
-        val placedItems =  ordersViewModel.getPlacedItems()
-
-        ordersViewModel.getPlacedOrdersFalseTMA()
-        ordersViewModel.getPlacedOrdersTrueTMA()
-        // val sharedItemsSessions = ordersViewModel.getSharedItemSession()
-
-        val placedOrdersBadge =
-            this.navView.getOrCreateBadge(R.id.navigation_placedOrders)
-        placedOrdersBadge.maxCharacterCount = 3
-        placedOrdersBadge.isVisible = false
-        placedOrdersBadge.badgeGravity = BadgeDrawable.BOTTOM_END
-        placedOrders.observe(this, {
-            val count =
-                placedOrders.value?.filter { orderShape -> orderShape.rosOrder?.itemsList?.size!! > 0 }!!.size
-            if (placedOrders.value != null && count > 0) {
-                placedOrdersBadge.number = count
-                placedOrdersBadge.isVisible = true
-            } else {
-                placedOrdersBadge.isVisible = false
-                placedOrdersBadge.clearNumber()
-            }
-
-            Variables.placedOrdersCount = placedOrders.value?.count {
-                var hasPreparing = false
-                for (item in it?.rosOrder?.itemsList!!) {
-                    if (!item.status?.preparing.isNullOrEmpty())
-                        hasPreparing = true
-                }
-                !hasPreparing
-            }!!
-            //  ordersViewModel.mergeSharedItemToItems()
-        })
-
-        val completedOrdersBadge =
-            this.navView.getOrCreateBadge(R.id.navigation_completedOrders)
-        completedOrdersBadge.maxCharacterCount = 3
-        completedOrdersBadge.isVisible = false
-        completedOrdersBadge.badgeGravity = BadgeDrawable.BOTTOM_END
-        completedOrders.observe(this, {
-            val count =
-                completedOrders.value?.filter { orderShape -> orderShape.rosOrder?.itemsList?.size!! > 0 }!!.size
-            if (completedOrders.value != null && count > 0) {
-                completedOrdersBadge.number = count
-                completedOrdersBadge.isVisible = true
-            } else {
-                completedOrdersBadge.isVisible = false
-                completedOrdersBadge.clearNumber()
-            }
-            // ordersViewModel.mergeSharedItemToItems()
-        })
-
-        val placedItemsBadge =
-            this.navView.getOrCreateBadge(R.id.navigation_placedItems)
-        placedItemsBadge.maxCharacterCount = 3
-        placedItemsBadge.badgeGravity = BadgeDrawable.BOTTOM_END
-        placedItemsBadge.isVisible = false
+    fun initialPlacedItems() {
+        val placedItems = OrdersViewModel.placedItems
         placedItems.observe(this, {
             when(it.status) {
                 Status.SUCCESS -> {
-                    if (it.data != null && it.data.size!! > 0) {
-                        placedItemsBadge.number = it.data.sumOf { it -> it.QTY }?.toInt()!!
-                        placedItemsBadge.isVisible = true
-                    } else {
-                        placedItemsBadge.isVisible = false
-                        placedItemsBadge.clearNumber()
-                    }
-                    Variables.placedOrdersHasPlacedItems = it.data?.size!!
-                    //  ordersViewModel.mergeSharedItemToItems()
-
+                    if (it.data != null && it.data.size > 0)
+                        onNewListeningToOrders(0,it.data.size)
+                    else
+                        onNewListeningToOrders(0,0)
                     Utils.hideCustomLoadingDialog()
                 }
                 Status.ERROR -> {
@@ -355,30 +294,65 @@ class MainActivity : AppCompatActivity() {
                     Utils.hideCustomLoadingDialog()
                 }
                 Status.LOADING -> {
-                   Utils.showCustomLoadingDialog(this)
+                    Utils.showCustomLoadingDialog(this)
                 }
             }
         })
+    }
+    fun initialPlacedOrders() {
+        val placedOrder =  ordersViewModel.getAllPlacedOrders(false)
+        placedOrder.observe(this, {
+            val count =
+                placedOrder.value?.filter { orderShape -> orderShape.rosOrder?.itemsList?.size!! > 0 }!!.size
+            onNewListeningToOrders(1,count)
+            Variables.placedOrdersCount = placedOrder.value?.count {
+                var hasPreparing = false
+                for (item in it?.rosOrder?.itemsList!!) {
+                    if (!item.status?.preparing.isNullOrEmpty())
+                        hasPreparing = true
+                }
+                !hasPreparing
+            }!!
+        })
+    }
+    fun initialPlacedCompletedOrders() {
+        val completedOrders = ordersViewModel.getAllPlacedOrders(true)
+        completedOrders.observe(this, {
+            val count =
+                completedOrders.value?.filter { orderShape -> orderShape.rosOrder?.itemsList?.size!! > 0 }!!.size
+            onNewListeningToOrders(2,count)
+        })
+    }
+    fun startListen() {
+        val modeldataListen = ordersViewModel.listenToOrdersTrueTMA()
+        modeldataListen.observe(this, {
+            val modeldata2 = ordersViewModel.listenToOrdersFalseTMA()
+            modeldata2.observe(this, {
+                ordersViewModel.setAllDataToRetrieved()
+            })
+        })
+    }
+    private fun initTabs() {
 
-        val tablesItemsBadge =
-            this.navView.getOrCreateBadge(R.id.navigation_tables)
-        tablesItemsBadge.maxCharacterCount = 3
-        tablesItemsBadge.number = sessionManager.fetchResNTable()
-        tablesItemsBadge.isVisible = true
-        tablesItemsBadge.badgeGravity = BadgeDrawable.BOTTOM_END
+
+        val modeldata = ordersViewModel.getAllOrdersAsSnapShotfFalse(sessionManager)
+        modeldata.observe(this, {
+            val modeldata2 = ordersViewModel.getAllOrdersAsSnapShotTrue(sessionManager)
+            modeldata2.observe(this, {
+                ordersViewModel.setAllDataToRetrieved()
+                initialPlacedItems()
+                initialPlacedOrders()
+                initialPlacedCompletedOrders()
+                startListen()
+            })
+        })
+
+
+
+        onNewListeningToOrders(3,sessionManager.fetchResNTable())
 
         if (sessionManager.fetchROSType().equals("t"))
             navView.menu.get(3).isVisible = false
-
-        /*  sharedItemsSessions.observe(this, {
-              ordersViewModel.mergeSharedItemToItems()
-              placedOrders.postValue(placedOrders.value)
-              completedOrders.postValue(completedOrders.value)
-              placedItems.postValue(placedItems.value)
-          })*/
-
-       // Utils.hideCustomLoadingDialog()
-
     }
 
     fun changeCompletedTabTimer(old: Boolean, new: Boolean) {
@@ -581,5 +555,29 @@ class MainActivity : AppCompatActivity() {
 //        } catch (e: Exception) {
 //        }
 
+    }
+
+    override fun onNewListeningToOrders(type: Int, count: Int) {
+        val idOfView : Int
+        if (type == 0) {
+            idOfView = R.id.navigation_placedItems
+            Variables.placedOrdersHasPlacedItems = count
+        }
+        else if (type == 1) {
+            idOfView = R.id.navigation_placedOrders
+            Variables.placedOrdersCount = count
+        }
+        else if (type == 2) {
+            idOfView = R.id.navigation_completedOrders
+        }
+        else {
+            idOfView = R.id.navigation_tables
+        }
+        val badgeView = this.navView.getOrCreateBadge(idOfView)
+        badgeView.maxCharacterCount = 3
+        badgeView.badgeGravity = BadgeDrawable.BOTTOM_END
+        badgeView.isVisible = count > 0
+        badgeView.number = count
+        if (count == 0) badgeView.clearNumber()
     }
 }

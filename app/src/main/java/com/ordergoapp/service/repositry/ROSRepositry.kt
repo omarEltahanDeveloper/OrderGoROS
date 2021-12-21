@@ -2,6 +2,7 @@ package com.ordergoapp.service.repositry
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
+import com.google.firebase.firestore.QuerySnapshot
 import com.ordergoapp.service.local.SessionManager
 import com.ordergoapp.service.data.*
 import com.ordergoapp.service.data.model.LoggedInUserView
@@ -41,21 +42,29 @@ class ROSRepositry(val dataSource: FirebaseDataSource, val sessionManager: Sessi
         dataSource.getAllROS(user?.restId!!)
 
      suspend fun getPlacedItems(): MutableLiveData<Resource<List<ROSOrderItem>>> =
-        dataSource.getItems2(sessionManager.fetchRESID()!!)
+        dataSource.getItems2()
+
+     suspend fun getAllOrdersAsSnapShotTrue(): MutableLiveData<QuerySnapshot> =
+        dataSource.getAllOrdersAsSnapShotTrue()
+
+     suspend fun getAllOrdersAsSnapShotFalse(): MutableLiveData<QuerySnapshot> =
+        dataSource.getAllOrdersAsSnapShotFalse()
+
+     suspend fun listenToOrdersTrueTMA(): MutableLiveData<QuerySnapshot> =
+        dataSource.listenToOrdersTrueTMA()
+
+     suspend fun listenToOrdersFalseTMA(): MutableLiveData<QuerySnapshot> =
+        dataSource.listenToOrdersFalseTMA()
 
 
-      suspend fun getPlacedOrdersTrueTMA(): MutableLiveData<List<OrderShape>> =
-        dataSource.getAllOrdersTrueTMA(false)
+      suspend fun getPlacedOrdersTrueTMA(isCompleted: Boolean): MutableLiveData<List<OrderShape>> =
+        dataSource.ListenToLatestAddedTrueTMA(isCompleted)
 
-     suspend fun getPlacedOrdersFalseTMA(): MutableLiveData<List<OrderShape>> =
-        dataSource.getAllOrdersFalseTMA(false)
+     suspend fun getPlacedOrdersFalseTMA(isCompleted: Boolean): MutableLiveData<List<OrderShape>> =
+        dataSource.ListenToLatestAddedFalseTMA(isCompleted)
 
-    suspend fun getPlacedOrders(): MutableLiveData<List<OrderShape>> =
-        dataSource.getAllOrders3(false)
-
-
-    suspend fun getCompletedOrders(): MutableLiveData<List<OrderShape>> =
-        dataSource.getAllOrders3(true)
+    suspend fun getAllPlacedOrders(isCompeleted: Boolean): MutableLiveData<List<OrderShape>> =
+        dataSource.getAllOrdersForFirstTime(isCompeleted)
 
     fun getTableOrders(tableId: Int): MutableLiveData<List<OrderShape>> =
         dataSource.getAllOrdersByTable2(false, tableId)

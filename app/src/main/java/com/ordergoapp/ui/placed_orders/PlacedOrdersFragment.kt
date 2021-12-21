@@ -283,26 +283,14 @@ class PlacedOrdersFragment : Fragment(), OrdersAdapter.OnItemClickListener {
             this.activity?.let {
                 listFalseTMA.observe(it, {
                     if (listFalseTMA.value != null) {
-                        if (orderListFalseTMA.isEmpty())
-                            this.orderListFalseTMA.addAll(listFalseTMA.value?.filter { orderShape -> orderShape.rosOrder?.itemsList?.size!! > 0 }!!)
-                        else {
-                            orderListFalseTMA.clear()
-                            this.orderListFalseTMA.addAll(listFalseTMA.value?.filter { orderShape -> orderShape.rosOrder?.itemsList?.size!! > 0 }!!)
-                        }
-
+                        this.orderListFalseTMA.addAll(listFalseTMA.value?.filter { orderShape -> orderShape.rosOrder?.itemsList?.size!! > 0 }!!)
                         initRecycler2()
                     }
                 })
 
                 listTrueTMA.observe(it, {
                     if (listTrueTMA.value != null) {
-                        if (orderListTrueTMA.isEmpty())
-                            this.orderListTrueTMA.addAll(listTrueTMA.value?.filter { orderShape -> orderShape.rosOrder?.itemsList?.size!! > 0 }!!)
-                        else {
-                            orderListTrueTMA.clear()
-                            this.orderListTrueTMA.addAll(listTrueTMA.value?.filter { orderShape -> orderShape.rosOrder?.itemsList?.size!! > 0 }!!)
-                        }
-
+                        this.orderListTrueTMA.addAll(listTrueTMA.value?.filter { orderShape -> orderShape.rosOrder?.itemsList?.size!! > 0 }!!)
                         initRecycler2()
                     }
                 })
@@ -311,8 +299,6 @@ class PlacedOrdersFragment : Fragment(), OrdersAdapter.OnItemClickListener {
         }
 
         binding.loading.visibility = View.GONE
-        Log.e("xxxxx1", orderListTrueTMA.size.toString())
-        Log.e("xxxxx2", orderListFalseTMA.size.toString())
     }
 
     private fun initRecycler2() {
