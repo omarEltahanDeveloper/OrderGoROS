@@ -121,15 +121,21 @@ class FirebaseDataSource(private val sessionManager: SessionManager) {
 
     suspend fun getAllOrdersAsSnapShotTrue(): MutableLiveData<QuerySnapshot> {
         val mutableLiveData = MutableLiveData<QuerySnapshot>()
-        trueTMAListCondition().get().addOnSuccessListener { snapshotsOne->
-            mutableLiveData.value = snapshotsOne
+        trueTMAListCondition().addSnapshotListener { snapshot, e ->
+            if (e != null) {
+                return@addSnapshotListener
+            }
+            mutableLiveData.value = snapshot
         }
         return mutableLiveData;
     }
     suspend fun getAllOrdersAsSnapShotFalse(): MutableLiveData<QuerySnapshot> {
         val mutableLiveData = MutableLiveData<QuerySnapshot>()
-        falseTMAListCondition().get().addOnSuccessListener { snapshotsOne ->
-            mutableLiveData.value = snapshotsOne
+        falseTMAListCondition().addSnapshotListener { snapshot, e ->
+            if (e != null) {
+                return@addSnapshotListener
+            }
+            mutableLiveData.value = snapshot
         }
         return mutableLiveData;
     }

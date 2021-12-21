@@ -323,30 +323,17 @@ class MainActivity : AppCompatActivity() , ListenToBadgeCount {
             onNewListeningToOrders(2,count)
         })
     }
-    fun startListen() {
-        val modeldataListen = ordersViewModel.listenToOrdersTrueTMA()
-        modeldataListen.observe(this, {
-            val modeldata2 = ordersViewModel.listenToOrdersFalseTMA()
-            modeldata2.observe(this, {
-                ordersViewModel.setAllDataToRetrieved()
-            })
-        })
-    }
     private fun initTabs() {
-
-
         val modeldata = ordersViewModel.getAllOrdersAsSnapShotfFalse(sessionManager)
         modeldata.observe(this, {
             val modeldata2 = ordersViewModel.getAllOrdersAsSnapShotTrue(sessionManager)
             modeldata2.observe(this, {
                 ordersViewModel.setAllDataToRetrieved()
-                initialPlacedItems()
-                initialPlacedOrders()
-                initialPlacedCompletedOrders()
-                startListen()
             })
         })
-
+        initialPlacedItems()
+        initialPlacedOrders()
+        initialPlacedCompletedOrders()
 
 
         onNewListeningToOrders(3,sessionManager.fetchResNTable())
