@@ -142,7 +142,7 @@ class FirebaseDataSource(private val sessionManager: SessionManager) {
             if (e != null) {
                 return@addSnapshotListener
             }
-//            if (!firsttime)
+            if (!firsttime)
                 mutableLiveData.value = snapshot
             firsttime = false
         }
